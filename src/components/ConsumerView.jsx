@@ -1,13 +1,12 @@
-// src/components/ConsumerView.jsx
 import React from 'react';
 
 function ConsumerView() {
   return (
     <section className="panel consumer-view">
       <h2>Traccia il Prodotto</h2>
-      <p>Qui l'utente potrà inserire l'ID del prodotto e vedere i dettagli.</p>
+      <p> Inserisci l'ID del prodotto </p>
 
-      <input type="text" placeholder="Inserisci l'ID del prodotto" />
+      <input type="text" placeholder="ID prodotto" />
       <button>Cerca</button>
 
       <div className="product-details">

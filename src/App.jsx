@@ -1,7 +1,7 @@
-import './App.css'; // Mantiene lo stile base
-import { useState } from 'react'; // Useremo lo stato per cambiare sezione
-import ProducerPanel from './components/ProducerPanel'; // Lo creeremo ora
-import ConsumerView from './components/ConsumerView';   // Lo creeremo ora
+import './App.css'; 
+import { useState } from 'react'; 
+import ProducerPanel from './components/ProducerPanel'; 
+import ConsumerView from './components/ConsumerView';   
 
 function App() {
   // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 'producer' o 'consumer'
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>Passaporto Digitale Made In Italy 🇮🇹</h1>
+        <h1>Passaporto Digitale del Made In Italy sostenibile</h1>
       </header>
       
       {/* Menu di navigazione tra le due viste */}
@@ -19,13 +19,13 @@ function App() {
           className={currentView === 'producer' ? 'active' : ''}
           onClick={() => setCurrentView('producer')}
         >
-          Produttore (Registra Prodotto)
+          Produttore: Registra Prodotto
         </button>
         <button
           className={currentView === 'consumer' ? 'active' : ''}
           onClick={() => setCurrentView('consumer')}
         >
-          Consumatore (Traccia Prodotto)
+          Consumatore: Traccia Prodotto
         </button>
       </nav>
 
