@@ -5,9 +5,7 @@ function FactoryView() {
   return (
     <section className="panel factory-view">
       <h2>Dati dello Stabilimento e della Produzione</h2>
-      <p>Questa sezione è per tracciare le informazioni specifiche sul luogo di produzione, le macchine utilizzate e le condizioni di lavoro.</p>
-      
-      {/* Qui potrai aggiungere i campi per l'indirizzo della fabbrica, numero di dipendenti, ecc. */}
+      {/*aggiunta dei campi per l'indirizzo della fabbrica, numero di dipendenti, ecc. */}
       
       <form>
         <label>Indirizzo Stabilimento:</label>
