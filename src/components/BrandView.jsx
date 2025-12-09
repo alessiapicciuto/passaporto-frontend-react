@@ -3,7 +3,7 @@ import React from 'react';
 
 function BrandView() {
   return (
-    <section className="panel brand-view">
+    <section class="panel brand-view">
       <h2>Identità e sostenibilità dei Brand</h2>
     
       {/* Qui potrai aggiungere i campi per la storia aziendale, certificazioni generali, ecc. */}

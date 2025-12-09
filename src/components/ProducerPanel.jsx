@@ -31,7 +31,7 @@ function ProducerPanel() {
   };
 
   return (
-    <section className="panel producer-panel">
+    <section class="panel producer-panel">
       <h2>Registra un Nuovo Capo</h2>
       
       {/* Colleghiamo il form alla funzione handleSubmit */}

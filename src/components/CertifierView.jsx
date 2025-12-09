@@ -3,7 +3,7 @@ import React from 'react';
 
 function CertifierView() {
   return (
-    <section className="panel certifying-view">
+    <section class="panel certifying-view">
       <h2>Dati dell'Ente Certificatore </h2>
       
       {/* Qui potrai aggiungere i campi specifici per un ente di certificazione. */}

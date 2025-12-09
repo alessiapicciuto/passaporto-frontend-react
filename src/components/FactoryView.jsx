@@ -3,7 +3,7 @@ import React from 'react';
 
 function FactoryView() {
   return (
-    <section className="panel factory-view">
+    <section class="panel factory-view">
       <h2>Dati dello Stabilimento e della Produzione</h2>
       {/*aggiunta dei campi per l'indirizzo della fabbrica, numero di dipendenti, ecc. */}
       

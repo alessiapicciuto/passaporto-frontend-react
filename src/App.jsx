@@ -12,40 +12,40 @@ function App() {
   const [currentView, setCurrentView] = useState('producer');
 
   return (
-    <div className="container">
-      <header className="header">
+    <div class="container">
+      <header class="header">
         <h1>Passaporto Digitale del Made In Italy sostenibile</h1>
       </header>
       
       {/* Menu di navigazione tra le viste */}
-      <nav className="navigation">
+      <nav class="navigation">
         <button
-          className={currentView === 'producer' ? 'active' : ''}
+          class={currentView === 'producer' ? 'active' : ''}
           onClick={() => setCurrentView('producer')}
         >
           Produttore: Registra Prodotto
         </button>
         <button
-          className={currentView === 'consumer' ? 'active' : ''}
+          class={currentView === 'consumer' ? 'active' : ''}
           onClick={() => setCurrentView('consumer')}
         >
           Consumatore: Traccia Prodotto
         </button>
         <button
-          className={currentView === 'brand' ? 'active' : ''}
+          class={currentView === 'brand' ? 'active' : ''}
           onClick={() => setCurrentView('brand')}
         >
           Brand: Registra Articolo
         </button>
 
         <button
-          className={currentView === 'certifier' ? 'active' : ''}
+          class={currentView === 'certifier' ? 'active' : ''}
           onClick={() => setCurrentView('certifier')}
         >
           Ente Certificante: Convalida Certificazioni
         </button>
         <button
-          className={currentView === 'factory' ? 'active' : ''}
+          class={currentView === 'factory' ? 'active' : ''}
           onClick={() => setCurrentView('factory')}
         >
           Fabbrica: Gestione Produzione
@@ -53,7 +53,7 @@ function App() {
       </nav>
 
       {/* Rendering condizionale del componente basato sullo stato */}
-      <main className="content">
+      <main class="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
