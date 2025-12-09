@@ -39,8 +39,8 @@ function App() {
         </button>
 
         <button
-          className={currentView === 'ente certificante' ? 'active' : ''}
-          onClick={() => setCurrentView('ente certificante')}
+          className={currentView === 'certifier' ? 'active' : ''}
+          onClick={() => setCurrentView('certifier')}
         >
           Ente Certificante: Convalida Certificazioni
         </button>
@@ -57,8 +57,8 @@ function App() {
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
-        {currentView === 'ente certificante' && <CertifierView />}
-        {currentView === 'fabbrica' && <FactoryView />}
+        {currentView === 'certifier' && <CertifierView />}
+        {currentView === 'factory' && <FactoryView />}
       </main>
       
     </div>
