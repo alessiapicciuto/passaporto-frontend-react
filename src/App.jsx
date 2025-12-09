@@ -23,13 +23,6 @@ function App() {
         </button>
 
         <button
-          className={currentView === 'consumer' ? 'active' : ''}
-          onClick={() => setCurrentView('consumer')}
-        >
-          Consumatore: Traccia Prodotto
-        </button>
-
-        <button
           className={currentView === 'brand' ? 'active' : ''}
           onClick={() => setCurrentView('brand')}
         >
@@ -42,13 +35,22 @@ function App() {
         >
           Fabbrica: Gestione Produzione
         </button>
+      
+        <button
+          className={currentView === 'consumer' ? 'active' : ''}
+          onClick={() => setCurrentView('consumer')}
+        >
+          Consumatore: Traccia Prodotto
+        </button>
+
       </nav>
 
       <main className="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
-        {currentView === 'factory' && <FactoryView />} 
+        {currentView === 'factory' && <FactoryView />}
+        
       </main>
     </div>
   );
