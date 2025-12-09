@@ -15,7 +15,7 @@ function App() {
         <h1>Passaporto Digitale del Made In Italy sostenibile</h1>
       </header>
       
-      {/* Menu di navigazione tra le due viste */}
+      {/* Menu di navigazione tra le viste */}
       <nav className="navigation">
         <button
           className={currentView === 'producer' ? 'active' : ''}
@@ -29,12 +29,19 @@ function App() {
         >
           Consumatore: Traccia Prodotto
         </button>
+        <button
+          className={currentView === 'consumer' ? 'active' : ''}
+          onClick={() => setCurrentView('brand')}
+        >
+          Brand: Registra Articolo
+        </button>
       </nav>
 
       {/* Rendering condizionale del componente basato sullo stato */}
       <main className="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
+        {currentView === 'brand' && <BrandViewView />}
       </main>
       
     </div>
