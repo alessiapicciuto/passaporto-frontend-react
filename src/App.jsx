@@ -30,7 +30,7 @@ function App() {
           Consumatore: Traccia Prodotto
         </button>
         <button
-          className={currentView === 'consumer' ? 'active' : ''}
+          className={currentView === 'brand' ? 'active' : ''}
           onClick={() => setCurrentView('brand')}
         >
           Brand: Registra Articolo
@@ -41,7 +41,7 @@ function App() {
       <main className="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
-        {currentView === 'brand' && <BrandViewView />}
+        {currentView === 'brand' && <BrandView />}
       </main>
       
     </div>
