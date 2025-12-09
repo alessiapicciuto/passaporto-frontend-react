@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ProducerPanel from './components/ProducerPanel'; 
 import ConsumerView from './components/ConsumerView';   
 import BrandView from './components/BrandView';   
-import FactoryView from './components/FactoryView';   // ✅ nuovo import
+import FactoryView from './components/FactoryView';  
 
 function App() {
   const [currentView, setCurrentView] = useState('producer');
