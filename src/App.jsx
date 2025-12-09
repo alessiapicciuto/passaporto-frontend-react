@@ -46,7 +46,7 @@ function App() {
         </button>
         <button
           className={currentView === 'factory' ? 'active' : ''}
-          onClick={() => setCurrentView('fabbrica')}
+          onClick={() => setCurrentView('factory')}
         >
           Fabbrica: Gestione Produzione
         </button>
@@ -57,7 +57,7 @@ function App() {
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
-        {currentView === 'ente certificante' && <CertifierView/>}
+        {currentView === 'ente certificante' && <CertifierView />}
         {currentView === 'fabbrica' && <FactoryView />}
       </main>
       
