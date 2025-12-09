@@ -4,6 +4,7 @@ import ProducerPanel from './components/ProducerPanel';
 import ConsumerView from './components/ConsumerView';   
 import BrandView from './components/BrandView';   
 import CertifierView from './components/CertifierView';
+import FactoryView from './components/FactoryView';
 
 
 function App() {
@@ -43,6 +44,12 @@ function App() {
         >
           Ente Certificante: Convalida Certificazioni
         </button>
+        <button
+          className={currentView === 'factory' ? 'active' : ''}
+          onClick={() => setCurrentView('fabbrica')}
+        >
+          Fabbrica: Gestione Produzione
+        </button>
       </nav>
 
       {/* Rendering condizionale del componente basato sullo stato */}
@@ -51,6 +58,7 @@ function App() {
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
         {currentView === 'ente certificante' && <CertifierView/>}
+        {currentView === 'fabbrica' && <FactoryView />}
       </main>
       
     </div>
