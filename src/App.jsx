@@ -3,9 +3,11 @@ import { useState } from 'react';
 import ProducerPanel from './components/ProducerPanel'; 
 import ConsumerView from './components/ConsumerView';   
 import BrandView from './components/BrandView';   
-import FactoryView from './components/FactoryView';  
+import CertifierView from './components/CertifierView';
+
 
 function App() {
+  // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 'producer' o 'consumer'
   const [currentView, setCurrentView] = useState('producer');
 
   return (
@@ -13,7 +15,8 @@ function App() {
       <header className="header">
         <h1>Passaporto Digitale del Made In Italy sostenibile</h1>
       </header>
-
+      
+      {/* Menu di navigazione tra le viste */}
       <nav className="navigation">
         <button
           className={currentView === 'producer' ? 'active' : ''}
@@ -21,7 +24,12 @@ function App() {
         >
           Produttore: Registra Prodotto
         </button>
-
+        <button
+          className={currentView === 'consumer' ? 'active' : ''}
+          onClick={() => setCurrentView('consumer')}
+        >
+          Consumatore: Traccia Prodotto
+        </button>
         <button
           className={currentView === 'brand' ? 'active' : ''}
           onClick={() => setCurrentView('brand')}
@@ -30,30 +38,23 @@ function App() {
         </button>
 
         <button
-          className={currentView === 'factory' ? 'active' : ''}
-          onClick={() => setCurrentView('factory')}
+          className={currentView === 'ente certificante' ? 'active' : ''}
+          onClick={() => setCurrentView('ente certificante')}
         >
-          Fabbrica: Gestione Produzione
+          Ente Certificante: Convalida Certificazioni
         </button>
-      
-        <button
-          className={currentView === 'consumer' ? 'active' : ''}
-          onClick={() => setCurrentView('consumer')}
-        >
-          Consumatore: Traccia Prodotto
-        </button>
-
       </nav>
 
+      {/* Rendering condizionale del componente basato sullo stato */}
       <main className="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
-        {currentView === 'factory' && <FactoryView />}
-        
+        {currentView === 'ente certificante' && <CertifierView/>}
       </main>
+      
     </div>
   );
 }
 
-export default App;
+export default App; //ciao
