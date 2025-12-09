@@ -3,10 +3,9 @@ import { useState } from 'react';
 import ProducerPanel from './components/ProducerPanel'; 
 import ConsumerView from './components/ConsumerView';   
 import BrandView from './components/BrandView';   
-
+import FactoryView from './components/FactoryView';   // ✅ nuovo import
 
 function App() {
-  // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 'producer' o 'consumer'
   const [currentView, setCurrentView] = useState('producer');
 
   return (
@@ -14,8 +13,7 @@ function App() {
       <header className="header">
         <h1>Passaporto Digitale del Made In Italy sostenibile</h1>
       </header>
-      
-      {/* Menu di navigazione tra le viste */}
+
       <nav className="navigation">
         <button
           className={currentView === 'producer' ? 'active' : ''}
@@ -23,29 +21,37 @@ function App() {
         >
           Produttore: Registra Prodotto
         </button>
+
         <button
           className={currentView === 'consumer' ? 'active' : ''}
           onClick={() => setCurrentView('consumer')}
         >
           Consumatore: Traccia Prodotto
         </button>
+
         <button
           className={currentView === 'brand' ? 'active' : ''}
           onClick={() => setCurrentView('brand')}
         >
           Brand: Registra Articolo
         </button>
+
+        <button
+          className={currentView === 'factory' ? 'active' : ''}
+          onClick={() => setCurrentView('factory')}
+        >
+          Fabbrica: Gestione Produzione
+        </button>
       </nav>
 
-      {/* Rendering condizionale del componente basato sullo stato */}
       <main className="content">
         {currentView === 'producer' && <ProducerPanel />}
         {currentView === 'consumer' && <ConsumerView />}
         {currentView === 'brand' && <BrandView />}
+        {currentView === 'factory' && <FactoryView />} 
       </main>
-      
     </div>
   );
 }
 
-export default App; //ciao
+export default App;
