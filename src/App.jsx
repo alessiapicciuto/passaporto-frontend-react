@@ -2,6 +2,8 @@ import './App.css';
 import { useState } from 'react'; 
 import ProducerPanel from './components/ProducerPanel'; 
 import ConsumerView from './components/ConsumerView';   
+import BrandView from './components/BrandView';   
+
 
 function App() {
   // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 'producer' o 'consumer'
@@ -40,3 +42,5 @@ function App() {
 }
 
 export default App;
+
+//vaffanculo
