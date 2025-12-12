@@ -8,7 +8,7 @@ import FactoryView from './components/FactoryView';
 
 
 function App() {
-  // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 'producer' o 'consumer'
+  // Lo stato serve per tenere traccia di quale pannello stiamo mostrando: 
   const [currentView, setCurrentView] = useState('producer');
 
   return (
