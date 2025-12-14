@@ -1,54 +1,64 @@
-// ConsumerLogic.jsx serve a definire la comunicazione per tra i dati registrati nella blockchain e l'interfaccia
+// File: src/components/consumerLogic.jsx
 
+import { useState } from 'react';
+// ⬅️ IMPORTIAMO LA FUNZIONE GET
+import { getContract } from '../utils/web3-instance'; 
 
-import React, { useState } from 'react';
-
-import { contract } from '../utils/web3-instance'; // Assumo che 'contract' sia l'istanza Web3
-
-const useConsumerLogic = () => { // Non è necessario passare 'contract' come argomento se lo importi
-    const [productID, setProductID] = useState('');
+const useConsumer = () => {
+    const [searchId, setSearchId] = useState('');
     const [passportDetails, setPassportDetails] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Funzione per la ricerca: questa interagirà con la blockchain
-    const handleSearch = async () => {
-        // 1. Verifica l'input
-        if (!productID.trim()) {
-            setError("Inserisci l'ID del prodotto.");
+    // Gestione della ricerca
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        
+        setError(null);
+        setPassportDetails(null);
+        setLoading(true);
+
+        // 1. OTTENIAMO IL CONTRATTO
+        const contract = getContract();
+
+        if (!contract) {
+            setError('❌ Errore: Connessione al contratto non stabilita.');
+            setLoading(false);
             return;
         }
 
-        setLoading(true);
-        setError(null);
-        setPassportDetails(null);
-
         try {
-            // 2. CHIAMA LA FUNZIONE DI LETTURA DEL CONTRATTO
-            // ⚠️ Questa è la riga che stavi cercando di inserire!
-            const result = await contract.methods.getPassport(productID).call(); 
+            // Chiamare la funzione getPassport del tuo Smart Contract
+            const result = await contract.methods.getPassport(searchId).call();
 
-            // 3. Verifica i Dettagli e imposta lo stato
-            setPassportDetails(result); 
-            
+            // Interpretare il risultato
+            if (result.id === '' || result.origin === '') { 
+                setError(`⚠️ Passaporto non trovato per ID: ${searchId}`);
+                setPassportDetails(null);
+            } else {
+                setPassportDetails({
+                    id: result.id,
+                    origin: result.origin, 
+                    timestamp: new Date(Number(result.timestamp) * 1000).toLocaleString(),
+                    certified: result.certified 
+                });
+            }
+
         } catch (err) {
-            console.error("Errore durante la ricerca:", err);
-            // Gestione di un errore tipico del contratto
-            const errorMessage = err.message.includes("Prodotto non trovato") 
-                             ? "Prodotto non trovato con l'ID fornito." 
-                             : "Errore durante la connessione o l'esecuzione del contratto.";
-            setError(errorMessage);
-        } finally {
-            setLoading(false);
+            console.error("Errore durante la ricerca del passaporto:", err);
+            setError(`❌ Errore durante la ricerca: ${err.message || 'Verifica la console.'}`);
         }
+        setLoading(false);
     };
 
     return {
-        productID, setProductID,
+        searchId,
+        setSearchId,
         passportDetails,
-        loading, error,
-        handleSearch
+        loading,
+        error,
+        handleSearch,
     };
 };
 
-export default useConsumerLogic;
+export default useConsumer;

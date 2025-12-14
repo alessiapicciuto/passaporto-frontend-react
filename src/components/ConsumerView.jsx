@@ -17,7 +17,7 @@ function ConsumerView() {
     };
 
     return (
-        <section class="panel consumer-view">
+        <section className="panel consumer-view">
             <h2>Traccia il Prodotto</h2>
             <p> Inserisci l'ID del prodotto </p>
 
