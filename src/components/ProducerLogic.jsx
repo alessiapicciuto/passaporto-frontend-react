@@ -22,13 +22,13 @@ const useProducer = () => {
         const accounts = getAccounts(); 
 
         if (!contract || accounts.length === 0) {
-            setError('❌ Errore: Connessione alla blockchain non pronta. Assicurati che Hardhat sia attivo.');
+            setError('Errore: Connessione alla blockchain non riuscita.');
             setLoading(false);
             return;
         }
 
         try {
-            // Chiamata alla funzione registerOrigin del contratto
+
             const result = await contract.methods.registerOrigin(
                 productId, 
                 originDetails
@@ -39,7 +39,7 @@ const useProducer = () => {
             
         } catch (err) {
             console.error("Errore durante la transazione:", err);
-            setError(`❌ Errore di transazione: ${err.message || 'Verifica la console.'}`);
+            setError(`Errore di transazione: ${err.message || 'Verifica la console.'}`);
         }
         setLoading(false);
     };

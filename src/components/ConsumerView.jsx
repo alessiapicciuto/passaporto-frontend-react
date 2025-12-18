@@ -9,10 +9,8 @@ function ConsumerView() {
         handleSearch 
     } = useConsumerLogic(); 
 
-    // Funzione di supporto per formattare il timestamp
     const formatTimestamp = (timestamp) => {
         if (timestamp === '0' || !timestamp) return 'N/A';
-        // Converte da secondi (Solidity) a millisecondi (JavaScript)
         return new Date(parseInt(timestamp) * 1000).toLocaleString();
     };
 

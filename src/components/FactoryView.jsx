@@ -11,7 +11,7 @@ function FactoryView() {
         <label>Indirizzo Stabilimento:</label>
         <input type="text" placeholder="Via Roma, 1 - 20100 Milano" />
         
-        <label>Consumo Energetico Stimato (per capo):</label>
+        <label>Consumo Energetico Stimato:</label>
         <input type="number" placeholder="kWh" />
         
         <button type="submit">Salva Dati Stabilimento</button>

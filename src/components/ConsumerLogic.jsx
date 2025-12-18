@@ -1,7 +1,7 @@
 // File: src/components/consumerLogic.jsx
 
 import { useState } from 'react';
-// ⬅️ IMPORTIAMO LA FUNZIONE GET
+//IMPORTIAMO LA FUNZIONE GET
 import { getContract } from '../utils/web3-instance'; 
 
 const useConsumer = () => {
@@ -12,42 +12,40 @@ const useConsumer = () => {
 
     // Gestione della ricerca
     const handleSearch = async (e) => {
-        e.preventDefault();
-        
+    e.preventDefault()
+
         setError(null);
         setPassportDetails(null);
         setLoading(true);
 
-        // 1. OTTENIAMO IL CONTRATTO
+    
         const contract = getContract();
 
         if (!contract) {
-            setError('❌ Errore: Connessione al contratto non stabilita.');
+            setError('Errore: Connessione al contratto non stabilita.');
             setLoading(false);
             return;
         }
 
         try {
-            // Chiamare la funzione getPassport del tuo Smart Contract
-            const result = await contract.methods.getPassport(searchId).call();
 
-            // Interpretare il risultato
-            if (result.id === '' || result.origin === '') { 
-                setError(`⚠️ Passaporto non trovato per ID: ${searchId}`);
+            const result = await contract.methods.getPassport(searchId).call();
+            if (result.id === '' || result.origin === '') {
+                setError(`Passaporto non trovato per ID: ${searchId}`);
                 setPassportDetails(null);
             } else {
                 setPassportDetails({
                     id: result.id,
-                    origin: result.origin, 
+                    origin: result.origin,
                     timestamp: new Date(Number(result.timestamp) * 1000).toLocaleString(),
-                    certified: result.certified 
+                    certified: result.certified
                 });
             }
-
+            
         } catch (err) {
+
             console.error("Errore durante la ricerca del passaporto:", err);
-            setError(`❌ Errore durante la ricerca: ${err.message || 'Verifica la console.'}`);
-        }
+            setError('Errore durante la ricerca');        }
         setLoading(false);
     };
 
